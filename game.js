@@ -241,7 +241,7 @@ const UI = {
         sctx.drawImage(this.tap[this.frame].sprite, this.tx, this.ty);
         break;
       case state.gameOver:
-        this.y = parseFloat(scrn.height - this.gameOver.sprite.height) / 2;
+        this.y = parseFloat(scrn.height - this.gameOver.sprite.height) / 8;
         this.x = parseFloat(scrn.width - this.gameOver.sprite.width) / 2;
         this.tx = parseFloat(scrn.width - this.tap[0].sprite.width) / 2;
         this.ty =
@@ -259,8 +259,8 @@ const UI = {
       case state.Play:
         sctx.lineWidth = "2";
         sctx.font = "35px Squada One";
-        sctx.fillText(this.score.curr, scrn.width / 2 - 5, 50);
-        sctx.strokeText(this.score.curr, scrn.width / 2 - 5, 50);
+        sctx.fillText(this.score.curr, scrn.width / 2 - 5, 60); // Ajusté de 50 à 60
+        sctx.strokeText(this.score.curr, scrn.width / 2 - 5, 60); // Ajusté de 50 à 60
         break;
       case state.gameOver:
         sctx.lineWidth = "2";
@@ -273,18 +273,18 @@ const UI = {
           );
           localStorage.setItem("best", this.score.best);
           let bs = `BEST  :     ${this.score.best}`;
-          sctx.fillText(sc, scrn.width / 2 - 80, scrn.height / 2 + 0);
-          sctx.strokeText(sc, scrn.width / 2 - 80, scrn.height / 2 + 0);
-          sctx.fillText(bs, scrn.width / 2 - 80, scrn.height / 2 + 30);
-          sctx.strokeText(bs, scrn.width / 2 - 80, scrn.height / 2 + 30);
+          sctx.fillText(sc, scrn.width / 2 - 80, scrn.height / 2 + 10); // Ajusté de 0 à 10
+          sctx.strokeText(sc, scrn.width / 2 - 80, scrn.height / 2 + 10); // Ajusté de 0 à 10
+          sctx.fillText(bs, scrn.width / 2 - 80, scrn.height / 2 + 40); // Ajusté de 30 à 40
+          sctx.strokeText(bs, scrn.width / 2 - 80, scrn.height / 2 + 40); // Ajusté de 30 à 40
         } catch (e) {
-          sctx.fillText(sc, scrn.width / 2 - 85, scrn.height / 2 + 15);
-          sctx.strokeText(sc, scrn.width / 2 - 85, scrn.height / 2 + 15);
+          sctx.fillText(sc, scrn.width / 2 - 85, scrn.height / 2 + 25); // Ajusté de 15 à 25
+          sctx.strokeText(sc, scrn.width / 2 - 85, scrn.height / 2 + 25); // Ajusté de 15 à 25
         }
-
         break;
     }
-  },
+  }
+  ,
   update: function () {
     if (state.curr == state.Play) return;
     this.frame += frames % 10 == 0 ? 1 : 0;
